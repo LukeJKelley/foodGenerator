@@ -1,0 +1,19 @@
+.div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  margin: 30px;
+  height: 80px;
+  width: 150px;
+  border-radius: 12px;
+  font-size: 20px;
+  color: #370617;
+  background-color: #ffba08;
+  &:hover {
+    border: 2px blue solid;
+    background-color: #e85d04;
+  }
+}
