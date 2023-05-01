@@ -1,0 +1,15 @@
+.Initial__button {
+  background-color: black;
+  color: white;
+  margin: 30px;
+  height: 80px;
+  width: 150px;
+  border-radius: 12px;
+  font-size: 20px;
+  border: 2px solid white;
+  &:hover {
+    border: black solid 2px;
+    background-color: white;
+    color: black;
+  }
+}

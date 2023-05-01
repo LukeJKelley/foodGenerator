@@ -1,0 +1,31 @@
+@import "../../styles/mediaQueries";
+
+.Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+@include small-phone {
+  .Buttons {
+    width: 20vw;
+    flex-direction: column;
+  }
+}
+
+@include phone {
+  .Buttons {
+    flex-direction: column;
+  }
+}
+@include tablet {
+  .Buttons {
+    flex-direction: column;
+  }
+}
+@include tablet-landscape {
+  .heading {
+    font-size: 40px;
+  }
+}

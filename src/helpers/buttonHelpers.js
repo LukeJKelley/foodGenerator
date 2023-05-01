@@ -1,4 +1,3 @@
-// buttonHelpers.js
 import { randomElementFunction } from "../helpers/randomElementFunction";
 
 export const getUniqueRandomElements = (arr) => {

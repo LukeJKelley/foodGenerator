@@ -1,27 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { randomElementFunction } from "../../helpers/randomElementFunction";
-import { array1 } from "../../arrays/TakeAway1";
 import styles from "./Button.module.scss";
+import {
+  getUniqueRandomElements,
+  removeDisplayedElements,
+} from "../../helpers/buttonHelpers";
+import InitialButton from "../InitialButton/InitialButton";
 
-const Button = () => {
-  // Helper function to get unique random elements for both buttons
-  const getUniqueRandomElements = (arr) => {
-    const firstRandomElement = randomElementFunction(arr);
-    let secondRandomElement = randomElementFunction(arr);
+const Button = ({ initialLabel, array }) => {
+  const uniqueRandomElements = getUniqueRandomElements(array);
 
-    while (firstRandomElement.randomIndex === secondRandomElement.randomIndex) {
-      secondRandomElement = randomElementFunction(arr);
-    }
-
-    return {
-      firstRandomElement: firstRandomElement.randomElement,
-      secondRandomElement: secondRandomElement.randomElement,
-    };
-  };
-
-  const uniqueRandomElements = getUniqueRandomElements(array1);
-
-  const [arr, setArr] = useState(array1);
+  const [arr, setArr] = useState(array);
   const [button1Label, setButton1Label] = useState(
     uniqueRandomElements.firstRandomElement
   );
@@ -29,12 +18,8 @@ const Button = () => {
     uniqueRandomElements.secondRandomElement
   );
 
-  // Helper function to remove displayed elements
-  const removeDisplayedElements = (arr, elementsToRemove) => {
-    return arr.filter((el) => !elementsToRemove.includes(el));
-  };
+  const [showOptions, setShowOptions] = useState(false);
 
-  // Update the array after setting button labels
   useEffect(() => {
     setArr((prevArr) =>
       removeDisplayedElements(prevArr, [button1Label, button2Label])
@@ -65,22 +50,36 @@ const Button = () => {
     setButton2Label(newButton2Label);
   };
 
+  const handleInitialButtonClick = () => {
+    setShowOptions(true);
+  };
+
   return (
     <div className={styles.div}>
-      <button
-        className={styles.button}
-        onClick={() => handleButtonClick(1)}
-        disabled={!button1Label}
-      >
-        {button1Label || "No more options"}
-      </button>
-      <button
-        className={styles.button}
-        onClick={() => handleButtonClick(2)}
-        disabled={!button2Label}
-      >
-        {button2Label || "No more options"}
-      </button>
+      {!showOptions && (
+        <InitialButton
+          initialLabel={initialLabel}
+          onClick={handleInitialButtonClick}
+        />
+      )}
+      {showOptions && (
+        <div className={styles.div__buttons}>
+          <button
+            className={styles.div__buttons_option}
+            onClick={() => handleButtonClick(1)}
+            disabled={!button1Label}
+          >
+            {button1Label || "No more options"}
+          </button>
+          <button
+            className={styles.div__buttons_option}
+            onClick={() => handleButtonClick(2)}
+            disabled={!button2Label}
+          >
+            {button2Label || "No more options"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-export const array1 = [
+export const takeAway = [
   "Pizza",
   "KFC",
   "Indian",

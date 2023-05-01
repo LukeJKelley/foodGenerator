@@ -1,13 +1,13 @@
 import "./App.css";
 import React from "react";
-import Button from "./component/Button/Button";
 import Heading from "./component/Heading/Heading";
+import { Buttons } from "./container/Buttons/Buttons";
 
 function App() {
   return (
     <div>
       <Heading />
-      <Button />
+      <Buttons />
     </div>
   );
 }

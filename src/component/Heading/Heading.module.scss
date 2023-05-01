@@ -1,3 +1,32 @@
+@import "../../styles/mediaQueries";
+
 .heading {
   color: white;
+  font-size: 80px;
+}
+
+@include small-phone {
+  .heading {
+    font-size: 15px;
+    width: 50vw;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
+@include phone {
+  .heading {
+    font-size: 20px;
+  }
+}
+@include tablet {
+  .heading {
+    font-size: 30px;
+  }
+}
+@include tablet-landscape {
+  .heading {
+    font-size: 40px;
+  }
 }

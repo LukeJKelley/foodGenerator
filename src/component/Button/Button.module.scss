@@ -1,19 +1,58 @@
-.div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+@import "../../styles/mediaQueries";
 
-.button {
-  margin: 30px;
-  height: 80px;
-  width: 150px;
-  border-radius: 12px;
-  font-size: 20px;
-  color: #370617;
-  background-color: #ffba08;
-  &:hover {
-    border: 2px blue solid;
-    background-color: #e85d04;
+.div {
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include small-phone {
+      width: 100vw;
+      flex-direction: row;
+      border: red solid 2px;
+    }
+    @include phone {
+      flex-direction: row;
+      border: red solid 2px;
+    }
+    @include tablet {
+      flex-direction: row;
+      border: red solid 2px;
+    }
+    &_option {
+      margin: 10px;
+      border-radius: 12px;
+      font-size: 20px;
+      color: #370617;
+      background-color: #ffba08;
+      &:hover {
+        border: 2px blue solid;
+        background-color: #e85d04;
+      }
+      @include small-phone {
+        font-size: 14px;
+        height: 80px;
+        width: 100px;
+        margin: 2px;
+        background-color: aqua;
+        border: solid blue 2px;
+      }
+      @include phone {
+        font-size: 15px;
+        height: 80px;
+        width: 120px;
+        margin: 2px;
+        background-color: aqua;
+        border: solid blue 2px;
+      }
+      @include tablet {
+        font-size: 20px;
+        height: 80px;
+        width: 200px;
+        margin: 5px;
+        background-color: aqua;
+        border: solid blue 2px;
+      }
+    }
   }
 }
